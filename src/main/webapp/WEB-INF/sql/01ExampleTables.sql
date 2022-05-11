@@ -21,3 +21,5 @@ SELECT * FROM Customers;
 SELECT * FROM Employees;
 
 SELECT * FROM Customers ORDER BY CustomerID DESC;
+
+SELECT * FROM Employees ORDER BY EmployeeID DESC;
