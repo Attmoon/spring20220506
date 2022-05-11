@@ -12,18 +12,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>
-	${param.id }번 고객의 이름은 ${customer.name }이고,
-	<br />
-	주소는 ${customer.address }입니다.
-	</h1>
-	
-	<h1>
-	도시 : ${customer.city }
-	</h1>
-	<h1>
-	나라 : ${customer.country }
-	</h1>
-	
+	<h1>${message }</h1>
+	<h1>새 직원 입력</h1>
+	<form action="${pageContext.request.contextPath }/ex14/sub06" method="post">
+		직원이름 : <input type="text" name="firstName" value="suhyun" /> <br />
+		직원 성 : <input type="text" name="lastName" value="Moon" /> <br />
+		생일 : <input type="date" name="birthDate" value="1996-03-22" /> <br />
+		사진 : <input type="text" name="photo" value="handsome" /> <br />
+		메모 : <input type="text" name="notes" value="cool" /> <br />
+		<button>등록</button>
+	</form>
 </body>
 </html>
