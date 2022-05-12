@@ -1,5 +1,7 @@
 package org.zerock.service.ex02;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.ex01.CustomerDto;
@@ -33,6 +35,14 @@ public class Ex04Service {
 
 	public boolean addEmployee(EmployeeDto employee) {
 		int count = mapper.insertEmployee(employee);
-		return count == 1;
+		return count == 1; // insert영향을 받은 레코드 갯수가 1이면 잘된거니까(하나의 employee를 넣으려는거니까)
+	}
+	
+	public List<EmployeeDto> listEmployee() {
+		return mapper.listEmployee();
+	}
+	
+	public List<CustomerDto> listCustomer() {
+		return mapper.listCustomer();
 	}
 }
