@@ -3,6 +3,7 @@ package org.zerock.mapper.ex02;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.zerock.domain.ex01.CustomerDto;
 import org.zerock.domain.ex01.EmployeeDto;
@@ -38,4 +39,19 @@ public interface Ex02Mapper {
 	@Select("SELECT CustomerID cid, CustomerName, ContactName, Address, City, PostalCode, Country "
 			+ "FROM Customers ORDER BY CustomerID ")
 	List<CustomerDto> listCustomer();
+	
+	@Select("SELECT CustomerID cid, "
+			+ "CustomerName, "
+			+ "ContactName, "
+			+ "Address, "
+			+ "City, "
+			+ "PostalCode, "
+			+ "Country "
+			+ "FROM Customers "
+			+ "LIMIT #{from}, #{row} ")
+	List<CustomerDto> listCustomerPage(@Param("from") int from,@Param("row") int row); 
+	// 2개이상 파라미터가 있을때는 컴파일할때 잃어버리는 이름을 유지할수있도록 param어노테이션 붙여야함
+	
+	@Select("SELECT Count(CustomerID) FROM Customers ")
+	int countCustomers();
 }

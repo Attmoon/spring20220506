@@ -40,5 +40,22 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	<div class="mt-3">
+		
+		<%-- 
+		<a href="sub09?page=1">1</a> |
+		<a href="sub09?page=2">2</a> |
+		<a href="sub09?page=3">3</a> |
+		<a href="sub09?page=4">4</a> |
+		<a href="sub09?page=5">5</a> |
+		--%>
+		
+		<c:forEach begin="${pageInfo.left }" end="${pageInfo.right }" var="page">
+		
+			<a href="sub09?page=${page }">${page }</a> |
+		
+		</c:forEach>		
+	</div>
 </body>
 </html>
