@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.ex04.Ex04Mapper"> <!-- interface경로 -->
+  <select id="selectCustomerNameById" resultType="String"> <!-- 메소드명과 리턴타입 -->
+    SELECT CustomerName FROM Customers WHERE CustomerId = #{id} 
+  </select>
+  
+  <select id="selectEmployeeFirstNameById" resultType="String">
+  	SELECT FirstName 
+  	FROM Employees 
+  	WHERE EmployeeId = #{id}
+  </select>
+  
+  <!-- insert
+  
+  update
+  
+  delete -->
+</mapper>
