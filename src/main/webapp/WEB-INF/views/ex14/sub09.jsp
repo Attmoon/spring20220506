@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="ex" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,11 +52,7 @@
 		<a href="sub09?page=5">5</a> |
 		--%>
 		
-		<c:forEach begin="${pageInfo.left }" end="${pageInfo.right }" var="page">
-		
-			<a href="sub09?page=${page }">${page }</a> |
-		
-		</c:forEach>		
+		<ex:PageNation path="sub09"/>	
 	</div>
 </body>
 </html>
