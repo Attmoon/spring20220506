@@ -15,5 +15,7 @@ public interface Ex04Mapper {
 	BoardDto getBoard(int id);
 
 	int updateBoard(BoardDto board);
+	
+	int deleteBoard(int id);
 
 }

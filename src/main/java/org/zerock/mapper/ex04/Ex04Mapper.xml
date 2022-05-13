@@ -22,7 +22,7 @@
   <select id="getBoard" resultType="org.zerock.domain.ex02.BoardDto">
   	SELECT id, title, body, inserted
   	FROM Board
-  	WHERE id = #{id}
+  	WHERE id = #{id} <!-- sql의 query에서 "?" 부분 -->
   </select>
   
   <update id="updateBoard">
@@ -31,6 +31,11 @@
   		body = #{body}
   	WHERE id = #{id}
   </update>
+  
+  <delete id="deleteBoard">
+  	DELETE FROM Board
+  	WHERE id = #{id}
+  </delete>
   
   <!-- insert
   
