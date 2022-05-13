@@ -38,6 +38,10 @@
 						${board.title }
 					</a>
 					
+					<c:if test="${board.numOfReply > 0 }">
+						[${board.numOfReply }]
+					</c:if>
+					
 					</td>
 					<td>${board.inserted }</td>
 				</tr>

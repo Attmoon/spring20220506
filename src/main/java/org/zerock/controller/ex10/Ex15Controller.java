@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.zerock.domain.ex02.BoardDto;
+import org.zerock.domain.ex02.ReplyDto;
 import org.zerock.service.ex04.Ex06Service;
+import org.zerock.service.ex04.Ex07Service;
 
 @Controller
 @RequestMapping("ex15")
@@ -18,6 +20,9 @@ public class Ex15Controller {
 	
 	@Autowired
 	private Ex06Service service;
+	
+	@Autowired
+	private Ex07Service replyService;
 	
 	@RequestMapping("sub01")
 	public String method01(int id, Model model) {
@@ -43,7 +48,6 @@ public class Ex15Controller {
 		
 		model.addAttribute("boardList",list);
 		
-		System.out.println(list.size());
 	}
 	
 	@GetMapping("board/{id}") // 경로변수(path variable)
@@ -52,8 +56,13 @@ public class Ex15Controller {
 		
 		// service 일시켜서 id에 해당하는 게시물 select
 		BoardDto dto = service.getBoard(id);
+		
+		List<ReplyDto> replyList = replyService.listReplyByBoardId(id);
+		
 		// model에 넣고
 		model.addAttribute("board", dto);
+		model.addAttribute("replyList", replyList);
+		
 		// board/get.jsp로 포워드
 		return "/ex15/board/get";
 	}

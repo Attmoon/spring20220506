@@ -14,8 +14,12 @@
   </select>
   
   <select id="selectBoard" resultType="org.zerock.domain.ex02.BoardDto">
-  	SELECT id, title, body, inserted
-  	FROM Board
+  	SELECT b.id, 
+  		   b.title, 
+  		   b.inserted,
+  		   COUNT(r.id) numOfReply <!-- 별칭으로 field명과 맞춰주기 -->
+  	FROM Board b LEFT JOIN Reply r ON b.id = r.board_id
+  	GROUP BY b.id
   	ORDER BY id DESC
   </select>
   

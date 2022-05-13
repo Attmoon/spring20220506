@@ -9,4 +9,27 @@
 	VALUES (#{boardId}, #{content}, #{inserted})
 	
 	</insert>
+	
+	<select id="selectReplyByBoardId" resultType="org.zerock.domain.ex02.ReplyDto">
+		
+	SELECT id id,
+		board_id boardId,
+		content content,
+		inserted inserted
+	FROM Reply
+	WHERE board_id = #{boardId}
+	ORDER BY id
+		
+	</select>
+	
+	<delete id="deleteReplyById">
+		DELETE FROM Reply
+		WHERE id = #{id }
+	</delete>
+	
+	<update id="updateReply">
+		UPDATE Reply
+		SET content = #{content }
+		WHERE id = #{id }
+	</update>
 </mapper>
