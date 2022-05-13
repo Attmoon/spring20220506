@@ -37,6 +37,11 @@
   	WHERE id = #{id}
   </delete>
   
+  <insert id="insertBoard" useGeneratedKeys="true" keyColumn="id" keyProperty="id"> <!-- 새 레코드입력했을때 새로운 key를 가져옴, db에 있는 테이블컬럼인 key, javabeans의 프로퍼티 -->
+  	INSERT INTO Board (title, body, inserted)
+  	VALUES (#{title}, #{body}, #{inserted})
+  </insert>
+  
   <!-- insert
   
   update

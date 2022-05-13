@@ -33,5 +33,16 @@
 		<button>삭제</button>
 	</form>
 	
+	<hr />
+	
+	<h1>댓글</h1>
+	
+	<c:url value="/ex16/reply/add" var="replyAddLink"></c:url>
+	<form action="${replyAddLink }" method="post" >
+		<input type="hidden" name="boardId" value="${board.id }" />
+		댓글 : <input type="text" name="content" size="50" />
+		
+		<button>쓰기</button>
+	</form>
 </body>
 </html>

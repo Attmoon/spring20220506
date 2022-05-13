@@ -83,4 +83,22 @@ public class Ex15Controller {
 		
 		return "redirect:/ex15/board/list";
 	}
+	
+	@GetMapping("board/write")
+	public void writeBoard() {
+		
+	}
+	
+	@PostMapping("board/write")
+	public String writeBoardProcess(BoardDto board) {
+		boolean success = service.addBoard(board);
+		
+		if (success) {
+			
+		} else {
+			
+		}
+		
+		return "redirect:/ex15/board/" + board.getId();
+	}
 }
